@@ -45,8 +45,9 @@ def get_resolution():
 
 gpu_name = os.popen('wmic path win32_VideoController get name').read().split('\n')[4]
 
-total_memory = os.popen('systeminfo | findstr /C:"Total Physical Memory"').read()[27:-4].replace(',','.')
-used_memory = str( round( float(total_memory) - float(os.popen('systeminfo |find "Available Physical Memory"').read()[27:-4].replace(',','.')) , 3) )
+total_memory = int(os.popen('systeminfo | findstr /C:"Total Physical Memory"').read()[27:-4].replace(',', ''))
+available_memory = int(os.popen('systeminfo |find "Available Physical Memory"').read()[27:-4].replace(',', ''))
+used_memory = str(round(total_memory - available_memory))
 
 #============================#
 
