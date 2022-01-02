@@ -1,2 +1,2 @@
 # winfetch
-flex your shitty windows config like linux users
+basically neofetch but for windows and worse
